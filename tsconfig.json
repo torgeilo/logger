@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    // Recommended
+    "strict": true,
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true,
+    // esbuild "should"
+    "isolatedModules": true,
+    // Environment
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "target": "esnext",
+    // Preferences
+    "noUnusedLocals": true
+  },
+  "include": ["./src/"],
+  "exclude": []
+}
