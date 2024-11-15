@@ -32,12 +32,14 @@ logger.log('Hello');
 logger.debug('world');
 ```
 
-Console output of the above (with levels log and debug):
+Default console output of the above (with levels log and debug):
 
 ```
 my namespace: Hello
 my namespace: world
 ```
+
+Default levels: debug, log, info, warn, error.
 
 ## Customizing
 
@@ -74,7 +76,7 @@ logger.Finn('Oh, man, are they angry!');
 logger.Jake('Angry and fresh outta ice cream!');
 ```
 
-Default console output (level: log):
+Default console output (with level log):
 
 ```ts
 Together Again/Finn: Oh, man, are they angry!
@@ -107,4 +109,4 @@ You could:
 
 Smaller bug reports are welcome.
 
-I don't have capacity for much else. You're probably better off forking it if you want to change things.
+I don't have capacity for much else. You're probably better off forking if you want to change things.
