@@ -1,7 +1,6 @@
 {
   "name": "@torgeilo/logger",
   "version": "0.0.1",
-  "private": true,
   "description": "Tiny, customizable logger for the browser",
   "keywords": [
     "log",
