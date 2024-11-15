@@ -4,7 +4,7 @@ Tiny, customizable logger, designed for the browser.
 
 It's less than 400 bytes minified.
 
-It has:
+## Features
 
 - Namespaces.
 - Pluggable log handlers.
@@ -13,7 +13,7 @@ It has:
 - Styled console log handler (separate bundle).
 - No dependencies.
 
-## Get started
+## Getting started
 
 ```
 import { getLogger } from '@torgeilo/logger';
@@ -31,7 +31,7 @@ my namespace: Hello
 my namespace: world
 ```
 
-## How to customize
+## Customizing
 
 ### Disable logging
 
@@ -49,7 +49,7 @@ Import and add to the `logHandlers` array.
 
 ```
 import { logHandlers } from '@torgeilo/logger';
-import { StyledConsoleLogHandler } from '@torgeilo/logger/styled-console-log-handler';
+import { StyledConsoleLogHandler } from '@torgeilo/logger/styled-console-log-handler.js';
 
 logHandlers.clear(); // Remove the default log handler.
 logHandlers.push(new StyledConsoleLogHandler());
@@ -94,3 +94,9 @@ You could:
 - Make a log handler which sends errors to a remote error tracker.
 - Make a log handler which sends a custom tag to a remote tracker: `logger.metric(123);`.
 - Make a test reporter which logs the test run output, and a log handler which sends it somewhere useful, in addition to the console.
+
+## Contributing
+
+Smaller bug reports are welcome.
+
+I don't have time for much else. You're probably better off forking it if you want to change things.

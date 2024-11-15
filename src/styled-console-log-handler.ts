@@ -28,14 +28,6 @@ export interface StyleOptions {
 /**
  * Emits log messages to the console, prefixed by the namespaces. The
  * namespaces are formatted to fixed width prefixes, potentially with color.
- *
- * To use the `StyledConsoleLogHandler`, do:
- *
- * ```ts
- * import { logHandlers } from './logger';
- *
- * logHandlers.push(new StyledConsoleLogHandler());
- * ```
  */
 export class StyledConsoleLogHandler implements LogHandler {
   #prefixLength: number;
