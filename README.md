@@ -17,13 +17,13 @@ It's less than 400 bytes minified.
 
 Install:
 
-```
+```sh
 npm install @torgeilo/logger
 ```
 
 Use:
 
-```
+```ts
 import { getLogger } from '@torgeilo/logger';
 
 const logger = getLogger('my namespace');
@@ -45,7 +45,7 @@ my namespace: world
 
 Empty the `logHandlers` array however you prefer. A `clear()` method is added for convenience:
 
-```
+```ts
 import { logHandlers } from '@torgeilo/logger';
 
 logHandlers.clear();
@@ -55,7 +55,7 @@ logHandlers.clear();
 
 Import and add the styled console log handler to the `logHandlers` array.
 
-```
+```ts
 import { logHandlers } from '@torgeilo/logger';
 import { StyledConsoleLogHandler } from '@torgeilo/logger/styled-console-log-handler.js';
 
@@ -65,7 +65,7 @@ logHandlers.push(new StyledConsoleLogHandler());
 
 ### Custom log levels/tags
 
-```
+```ts
 import { getLogger } from '@torgeilo/logger';
 
 const logger = getLogger<'Finn' | 'Jake'>('Together Again');
@@ -76,7 +76,7 @@ logger.Jake('Angry and fresh outta ice cream!');
 
 Default console output (level: log):
 
-```
+```ts
 Together Again/Finn: Oh, man, are they angry!
 Together Again/Jake: Angry and fresh outta ice cream!
 ```
@@ -85,7 +85,7 @@ Together Again/Jake: Angry and fresh outta ice cream!
 
 Implement the `LogHandler` interface and add your implementation to the `logHandlers` array. The interface:
 
-```
+```ts
 export interface LogHandler {
   log(namespace: string, tag: string, message: unknown, ...messages: unknown[]): void;
 }
