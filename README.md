@@ -15,6 +15,14 @@ It's less than 400 bytes minified.
 
 ## Getting started
 
+Install:
+
+```
+npm install @torgeilo/logger
+```
+
+Use:
+
 ```
 import { getLogger } from '@torgeilo/logger';
 
@@ -24,7 +32,7 @@ logger.log('Hello');
 logger.debug('world');
 ```
 
-Console output of the above (with console.log and console.debug):
+Console output of the above (with levels log and debug):
 
 ```
 my namespace: Hello
@@ -35,7 +43,7 @@ my namespace: world
 
 ### Disable logging
 
-Empty the `logHandlers` array however you prefer. A `clear()` method is added for your convenience:
+Empty the `logHandlers` array however you prefer. A `clear()` method is added for convenience:
 
 ```
 import { logHandlers } from '@torgeilo/logger';
@@ -45,7 +53,7 @@ logHandlers.clear();
 
 ### Styled console log handler
 
-Import and add to the `logHandlers` array.
+Import and add the styled console log handler to the `logHandlers` array.
 
 ```
 import { logHandlers } from '@torgeilo/logger';
@@ -66,7 +74,7 @@ logger.Finn('Oh, man, are they angry!');
 logger.Jake('Angry and fresh outta ice cream!');
 ```
 
-Default console output (console.log):
+Default console output (level: log):
 
 ```
 Together Again/Finn: Oh, man, are they angry!
@@ -99,4 +107,4 @@ You could:
 
 Smaller bug reports are welcome.
 
-I don't have time for much else. You're probably better off forking it if you want to change things.
+I don't have capacity for much else. You're probably better off forking it if you want to change things.
