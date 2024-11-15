@@ -102,7 +102,7 @@ You could:
 - Make a log handler which only outputs errors or warnings.
 - Make a log handler which shows the log in an HTML element on screen.
 - Make a log handler which sends errors to a remote error tracker.
-- Make a log handler which sends a custom tag to a remote tracker: `logger.metric(123);`.
+- Make a log handler which sends a custom tag to a remote tracker, like `logger.metric(123);`.
 - Make a test reporter which logs the test run output, and a log handler which sends it somewhere useful, in addition to the console.
 
 ## Contributing

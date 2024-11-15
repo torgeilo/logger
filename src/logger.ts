@@ -1,6 +1,6 @@
 export type LogMethod = (message: unknown, ...messages: unknown[]) => void;
 
-export type Logger<Tags extends string | number | symbol> = {
+export type Logger<Tags extends string> = {
   [Tag in Tags]: LogMethod;
 };
 
@@ -31,9 +31,9 @@ function log(namespace: string, tag: string, message: unknown, ...messages: unkn
   }
 }
 
-export function getLogger<Tags extends string | number | symbol = DefaultTags>(namespace: string): Logger<Tags> {
+export function getLogger<Tags extends string = DefaultTags>(namespace: string): Logger<Tags> {
   return new Proxy({} as Logger<Tags>, {
-    get(_target: Logger<Tags>, tag: string, receiver): LogMethod {
+    get(_target: Logger<Tags>, tag: string, receiver: unknown): LogMethod {
       return log.bind(receiver, namespace, tag);
     },
   });
