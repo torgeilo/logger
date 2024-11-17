@@ -105,6 +105,10 @@ You could:
 - Make a log handler which sends a custom tag to a remote tracker, like `logger.metric(123);`.
 - Make a test reporter which logs the test run output, and a log handler which sends it somewhere useful, in addition to the console.
 
+## License
+
+This software is licensed under the terms of the MIT license.
+
 ## Contributing
 
 Smaller bug reports are welcome.
