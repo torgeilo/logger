@@ -41,7 +41,7 @@
     "*.d.ts"
   ],
   "prettier": {
-    "printWidth": 120,
+    "printWidth": 110,
     "singleQuote": true
   }
 }

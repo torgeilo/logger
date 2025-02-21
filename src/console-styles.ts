@@ -21,7 +21,8 @@ export function generateHue(index: number): number {
 
 export function applyStyle(messages: unknown[], style: { hue?: number; bold?: boolean }): void {
   const css =
-    (style.hue !== undefined ? `color:hsl(${style.hue * 360},99%,40%);` : '') + (style.bold ? 'font-weight:bold;' : '');
+    (style.hue !== undefined ? `color:hsl(${style.hue * 360},99%,40%);` : '') +
+    (style.bold ? 'font-weight:bold;' : '');
 
   const startIndex = messages.length - 1;
 
