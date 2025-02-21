@@ -1,11 +1,12 @@
+export type LogLevel = 'debug' | 'log' | 'info' | 'warn' | 'error';
+export const logLevels: LogLevel[] = ['debug', 'log', 'info', 'warn', 'error'];
+export const isLogLevel = (tag: string): tag is LogLevel => (logLevels as string[]).includes(tag);
+
 export type LogMethod = (message: unknown, ...messages: unknown[]) => void;
 
 export type Logger<Tags extends string> = {
   [Tag in Tags]: LogMethod;
 };
-
-export type DefaultTags = 'debug' | 'log' | 'info' | 'warn' | 'error';
-const defaultTags = ['debug', 'log', 'info', 'warn', 'error'];
 
 export interface LogHandler {
   log(namespace: string, tag: string, message: unknown, ...messages: unknown[]): void;
@@ -13,15 +14,15 @@ export interface LogHandler {
 
 export const defaultLogHandler: LogHandler = {
   log(namespace, tag, message, ...messages): void {
-    if (defaultTags.includes(tag)) {
-      console[tag as DefaultTags](`${namespace}:`, message, ...messages);
+    if (isLogLevel(tag)) {
+      console[tag](`${namespace}:`, message, ...messages);
     } else {
       console.log(`${namespace}/${tag}:`, message, ...messages);
     }
   },
 };
 
-// @ts-expect-error: Clear isn't in the first assignment.
+// @ts-expect-error: Clear is created next.
 export const logHandlers: LogHandler[] & { clear: () => void } = [defaultLogHandler];
 logHandlers.clear = () => (logHandlers.length = 0);
 
@@ -31,7 +32,7 @@ function log(namespace: string, tag: string, message: unknown, ...messages: unkn
   }
 }
 
-export function getLogger<Tags extends string = DefaultTags>(namespace: string): Logger<Tags> {
+export function getLogger<Tags extends string = LogLevel>(namespace: string): Logger<Tags> {
   return new Proxy({} as Logger<Tags>, {
     get(_target: Logger<Tags>, tag: string, receiver: unknown): LogMethod {
       return log.bind(receiver, namespace, tag);

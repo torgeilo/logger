@@ -2,8 +2,6 @@
 
 Tiny, customizable logger, designed for the browser.
 
-It's less than 400 bytes minified.
-
 ## Features
 
 - Namespaces.
@@ -32,20 +30,21 @@ logger.log('Hello');
 logger.debug('world');
 ```
 
-Default console output of the above (with levels log and debug):
+Default console output of the above, with log levels "log" and "debug":
 
 ```
 my namespace: Hello
 my namespace: world
 ```
 
-Default levels: debug, log, info, warn, error.
+Default log levels: debug, log, info, warn, error.
 
 ## Customizing
 
 ### Disable logging
 
-Empty the `logHandlers` array however you prefer. A `clear()` method is added for convenience:
+Empty the `logHandlers` array however you prefer. A `clear()` method is added
+for convenience:
 
 ```ts
 import { logHandlers } from '@torgeilo/logger';
@@ -85,7 +84,8 @@ Together Again/Jake: Angry and fresh outta ice cream!
 
 ### Custom log handler
 
-Implement the `LogHandler` interface and add your implementation to the `logHandlers` array. The interface:
+Implement the `LogHandler` interface and add your implementation to the
+`logHandlers` array. The interface:
 
 ```ts
 export interface LogHandler {
@@ -93,7 +93,20 @@ export interface LogHandler {
 }
 ```
 
-The tag is typically the log level.
+The tag is typically the log level, which can be checked using `isLogLevel()`:
+
+```ts
+import { isLogLevel } from '@torgeilo/logger';
+
+const tag = ...;
+const message = ...;
+
+if (isLogLevel(tag)) {
+  console[tag](message);
+} else {
+  console.log(`${tag}:`, message);
+}
+```
 
 ### Possibilities
 
@@ -102,8 +115,10 @@ You could:
 - Make a log handler which only outputs errors or warnings.
 - Make a log handler which shows the log in an HTML element on screen.
 - Make a log handler which sends errors to a remote error tracker.
-- Make a log handler which sends a custom tag to a remote tracker, like `logger.metric(123);`.
-- Make a test reporter which logs the test run output, and a log handler which sends it somewhere useful, in addition to the console.
+- Make a log handler which sends a custom tag to a remote tracker, like
+  `logger.metric(123);`.
+- Make a test reporter which logs the test run output, and a log handler which
+  sends it somewhere useful, in addition to the console.
 
 ## License
 
@@ -113,4 +128,5 @@ This software is licensed under the terms of the MIT license.
 
 Smaller bug reports are welcome.
 
-I don't have capacity for much else. You're probably better off forking if you want to change things.
+I don't have capacity for much else. You're probably better off forking if you
+want to change things.

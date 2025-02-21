@@ -1,4 +1,4 @@
-import { LogHandler } from './logger.js';
+import { isLogLevel, LogHandler } from './logger.js';
 import { applyStyle, supportsStyles, generateHue } from './console-styles.js';
 
 export interface StyleOptions {
@@ -55,8 +55,8 @@ export class StyledConsoleLogHandler implements LogHandler {
       this.#prefixCache[namespace] = prefix;
     }
 
-    if (['debug', 'log', 'info', 'warn', 'error'].includes(tag)) {
-      console[tag as 'log'](...this.#prefixCache[namespace], message, ...messages);
+    if (isLogLevel(tag)) {
+      console[tag](...this.#prefixCache[namespace], message, ...messages);
     } else {
       console.log(...this.#prefixCache[namespace], `${tag}:`, message, ...messages);
     }
